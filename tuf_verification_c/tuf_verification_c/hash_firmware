@@ -1,0 +1,14 @@
+use std::fs;
+use sha2::{Digest, Sha256};
+
+fn main() {
+let firmware = fs::read("firmware.bin").expect("Failed to read firmware file");
+let mut hasher = sha256::new();
+hasher.update(&firmware);
+let result = hasher.finalize();
+printIn!("SHA-256 hash of firmware.bin:");
+for byte in result {
+print!("{:02x}", byte);
+}
+printIn!();
+}
