@@ -1,0 +1,32 @@
+use std::fs::File;
+use std::io::{BufReader, Read};
+use sha2::{Sha256, Digest};
+
+fn main() {
+    let firmware_path = "firmware.bin";
+
+
+    let file = File::open(firmware_path).expect("Failed to open firmware.bin");
+    let mut reader = BufReader::new(file);
+
+
+    let mut buffer = [0u8; 4096];
+    let mut hasher = Sha256::new();
+
+
+    loop {
+        let bytes_read = reader.read(&mut buffer).expect("Failed to read firmware.bin");
+        if bytes_read == 0 {
+            break;
+        }
+        hasher.update(&buffer[..bytes_read]);
+    }
+
+
+    let hash_result = hasher.finalize();
+    println!("SHA-256 Hash of firmware.bin:");
+    for byte in hash_result {
+        print!("{:02x}", byte);
+    }
+    println!();
+}
