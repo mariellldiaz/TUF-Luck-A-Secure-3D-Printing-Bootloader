@@ -1,0 +1,31 @@
+[package]
+name = "tuf-tools"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tuf = "0.3.0-beta9"
+clap = { version = "4.4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0"
+ring = "0.17.14"
+base64 = "0.22.1"
+hex = "0.4.3"
+ed25519-dalek = "2.2.0"
+chrono = "0.4.41"
+
+[[bin]]
+name = "generate_key"
+path = "src/bin/generate_key.rs"
+
+[[bin]]
+name = "sign_metadata"
+path = "src/bin/sign_metadata.rs"
+
+[[bin]]
+name = "extract_pubkey"
+path = "src/bin/extract_pubkey.rs"
+
+[[bin]]
+name = "print_pubkey"
+path = "src/bin/print_pubkey.rs"
