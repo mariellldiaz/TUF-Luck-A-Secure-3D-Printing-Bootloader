@@ -4,7 +4,7 @@ REU 2025 Project at University of Delaware under Dr. Nektarios
 This project implements a TUF firmware verification from Rust-TUF to embedded C-TUF. It demonstrates firmware signing and verification using TUF principles.
 
 ## Overview
-- **Rust tools* for key generation, firmware signing, and TUF metadata creation.
+- **Rust tools** for key generation, firmware signing, and TUF metadata creation.
 - **C implementation** for verifying firmware authenticity.
 - Uses **Ed25519** [Monocypher] (https://monocypher.org/) and **SHA-256** hashing.
 - **Targets metadata parsing** using [cJSON] (https://github.com/DaveGamble/cJSON).
